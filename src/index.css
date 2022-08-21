@@ -43,3 +43,19 @@
 @import url(./blocks/elements/__element-like-length/elements__element-like-length.css);
 @import url(./blocks/elements/__element-likes-box/elements__element-likes-box.css);
 @import url(./blocks/elements/__elements-delete-button/_active/elements__delete-button_active.css);
+@import url(./blocks/hello/hello.css);
+@import url(./blocks/hello/__form/hello__form.css);
+@import url(./blocks/hello/__question-link/hello__question-link.css);
+@import url(./blocks/hello/__question-text/hello__question-text.css);
+@import url(./blocks/hello/__question/hello__question.css);
+@import url(./blocks/hello/__submit/hello__submit.css);
+@import url(./blocks/hello/__title/hello__title.css);
+@import url(./blocks/hello/__input/hello__input.css);
+@import url(./blocks/header/__box/header__box.css);
+@import url(./blocks/header/__email/header__email.css);
+@import url(./blocks/header/__link/header__link.css);
+@import url(./blocks/popup/__info/popup__info.css);
+@import url(./blocks/popup/__reply/popup__reply.css);
+@import url(./blocks/popup/__reply/popup__reply-img.css);
+
+

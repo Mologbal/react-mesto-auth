@@ -3,12 +3,13 @@ import React from "react";
 function ImagePopup({card, onClose, onOverlayClose, onButtonEsc}) {
 
     React.useEffect(() => {
+        if (card) {
             document.addEventListener('keydown', onButtonEsc)
             return () => {
                 document.removeEventListener('keydown', onButtonEsc);
               }
-    }, [])
-
+        }
+    }, [card])
 
     return (
         <div className={`popup popup_approximation ${card && 'popup_enable'}`} onClick={onOverlayClose}id="popup-approximation">

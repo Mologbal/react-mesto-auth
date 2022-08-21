@@ -2,8 +2,10 @@
     width: 68.75%;
     margin: auto;
     margin-top: 0 auto;
-    padding-top: 43px;
+    padding-top: 49px;
     border-bottom: solid 1px rgb(33%, 33%, 33%, .7);
+    display: flex;
+    justify-content: space-between;
 }
 
 @media screen and (max-width: 845px) {

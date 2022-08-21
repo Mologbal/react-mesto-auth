@@ -1,14 +1,27 @@
-function PopupWithForm(props) {
-    let PopupOpen = props.open ? 'popup_enable': ``;
+import React from "react";
+
+function PopupWithForm({children, open, onButtonEsc, name, onOverlayClose, close, onSubmit, title, buttonText}) {
+    let PopupOpen = open ? 'popup_enable': ``;
+
+    //закроет попапы по нажатию на Esc 
+    React.useEffect(() => {
+        if (open) {
+            document.addEventListener('keydown', onButtonEsc)
+            return () => {
+                document.removeEventListener('keydown', onButtonEsc);
+              }
+        }
+    }, [open])
+
     return (
-        <div className={`popup ${PopupOpen}`} onClick={props.onOverlayClose} id={`popup-${props.name}`}>               
+        <div className={`popup ${PopupOpen}`} onClick={onOverlayClose} id={`popup-${name}`}>               
         <div className="popup__window">
-            <button className="popup__close-button" type="button" aria-label="Закрыть" onClick={props.close}></button>
-            <h2 className="popup__title">{props.title}</h2>
-            <form className="popup__placeholder" name="popup__form" onSubmit={props.onSubmit}>
-            {props.children}
-                <button className="popup__save-button" id="saveProfile" type="submit"
-                    aria-label="Сохранить">{props.buttonText}</button>
+            <button className="popup__close-button" type="button" aria-label="Закрыть" onClick={close}></button>
+            <h2 className="popup__title">{title}</h2>
+            <form className="popup__placeholder" name="popup__form" onSubmit={onSubmit}>
+            {children}
+                <button className="popup__save-button"  type="submit"
+                    aria-label="Сохранить">{buttonText}</button>
             </form>
         </div>
         <div className="popup__overlay"></div>

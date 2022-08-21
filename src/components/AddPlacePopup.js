@@ -30,17 +30,6 @@ function AddPlacePopup({open, close, onSubmit, onOverlayClose, onButtonEsc}) {
         setLink('');
     }, [open])
 
-    //закроет по нажатию на Esc
-    React.useEffect(() => {
-        if (open) {
-            document.addEventListener('keydown', onButtonEsc)
-            return () => {
-                document.removeEventListener('keydown', onButtonEsc);
-              }
-        }
-    }, [open])
-
-
     return (
         <PopupWithForm 
         name='cards' 
@@ -50,6 +39,7 @@ function AddPlacePopup({open, close, onSubmit, onOverlayClose, onButtonEsc}) {
         buttonText = 'Создать'
         onSubmit={handleSubmit}
         onOverlayClose = {onOverlayClose}
+        onButtonEsc={onButtonEsc}
         >
         <input
         value={place}

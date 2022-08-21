@@ -17,14 +17,7 @@ function EditAvatarPopup({open, close, onSubmit, onOverlayClose, onButtonEsc}) {
         ref.current.value = ''
     }, [open])
 
-    React.useEffect(() => {
-        if (open) {
-            document.addEventListener('keydown', onButtonEsc)
-            return () => {
-                document.removeEventListener('keydown', onButtonEsc);
-              }
-        }
-    }, [open])
+
 
 
     return (
@@ -36,6 +29,7 @@ function EditAvatarPopup({open, close, onSubmit, onOverlayClose, onButtonEsc}) {
                     onSubmit={handleSubmit}
                     buttonText = 'Сохранить'
                     onOverlayClose={onOverlayClose}
+                    onButtonEsc={onButtonEsc}
                     >
                     <input
                     ref={ref}

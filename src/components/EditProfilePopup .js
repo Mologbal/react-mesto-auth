@@ -32,15 +32,6 @@ function EditProfilePopup ({open, close, onUpdateUser, onOverlayClose, onButtonE
         }    
     }, [open, currentUser]);
 
-    React.useEffect(() => {
-        if (open) {
-            document.addEventListener('keydown', onButtonEsc)
-            return () => {
-                document.removeEventListener('keydown', onButtonEsc);
-              }
-        }
-    }, [open])
-
     return (
         <PopupWithForm
                 name='profile'
@@ -50,6 +41,7 @@ function EditProfilePopup ({open, close, onUpdateUser, onOverlayClose, onButtonE
                 buttonText ='Сохранить'
                 onSubmit={handleSubmit}
                 onOverlayClose={onOverlayClose}
+                onButtonEsc={onButtonEsc}
                 >
                 <input
                     className="popup__placeholder-input popup__placeholder-input_type_name"
