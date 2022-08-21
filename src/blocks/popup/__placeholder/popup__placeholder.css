@@ -1,0 +1,4 @@
+.popup__placeholder {
+    display: flex;
+    flex-direction: column;
+}

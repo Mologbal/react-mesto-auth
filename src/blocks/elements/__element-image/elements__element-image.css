@@ -1,0 +1,10 @@
+.elements__element-image {
+    width: 282px;
+    height: 282px;
+    display: flex;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    /* Ниже попытка решить проблему "нестандартной картинки, верна ли она? */
+    object-fit: cover;
+    object-position: center;
+}

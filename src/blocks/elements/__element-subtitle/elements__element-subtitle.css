@@ -1,0 +1,13 @@
+.elements__element-subtitle {
+    font-size: 24px;
+    line-height: 29.05px;
+    font-weight: 900;
+    margin-left: 21px;
+    margin-right: 15px;
+    margin-top: 20px;
+    margin-bottom: 25px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 70%;
+}

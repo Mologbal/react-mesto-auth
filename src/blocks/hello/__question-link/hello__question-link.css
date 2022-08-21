@@ -1,0 +1,10 @@
+.hello__question-link {
+    color: #fff;
+    text-decoration: none;
+    transition: .2s linear;
+    margin-left: 5px;
+}
+
+.hello__question-link:hover {
+    opacity: 0.6;
+}

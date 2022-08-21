@@ -1,0 +1,20 @@
+.popup__error {
+    display: block;
+    min-height: 28px;
+    width: 83.26%;
+    color: red;
+    margin: auto;
+    font-size: 12px;
+    line-height: 14.52px;
+    margin-top: 5px;
+    word-wrap: break-word;
+    opacity: 0;
+}
+
+.form__input-error_active {
+    opacity: 1;
+}
+
+.form__input_type_error {
+    border-bottom: 1px solid red;
+}

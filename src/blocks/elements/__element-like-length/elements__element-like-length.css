@@ -1,0 +1,12 @@
+.elements__element-like-length {
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    max-width: 22px;
+    max-height: 19px;
+    display: block;
+    text-align: center;
+    margin-top: 3px;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 15.73px;
+    color: #000;
+}

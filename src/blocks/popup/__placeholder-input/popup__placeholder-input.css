@@ -1,0 +1,33 @@
+.popup__placeholder-input {
+    width: 358px;
+    height: 27px;
+    display: flex;
+    font-size: 14px;
+    line-height: 16.94px;
+    font-weight: 400;
+    border: none;
+    border-bottom: 1px solid black;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    outline: none;
+    padding: 0;
+    border-color: rgba(0, 0, 0, .2);
+    margin: auto;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+
+
+
+
+.popup__placeholder-input:last-of-type {
+    margin-bottom: 0;
+}
+
+@media screen and (max-width: 845px) {
+    .popup__placeholder-input {
+        width: 238px;
+    }
+}

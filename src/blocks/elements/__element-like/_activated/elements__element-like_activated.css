@@ -1,0 +1,11 @@
+.elements__element-like_activated {
+    background-image: url(../../../../images/Union.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 22px;
+    height: 19px;
+    margin-right: 20px;
+    border: none;
+    background-color: white;
+    transition: all 1s ease 0s;
+}

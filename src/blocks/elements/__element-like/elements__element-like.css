@@ -1,0 +1,15 @@
+.elements__element-like {
+    background-image: url(../../../images/elementsLike.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 22px;
+    height: 19px;
+    margin-right: 20px;
+    border: none;
+    background-color: white;
+    transition: all 1s ease 0s;
+}
+
+.elements__element-like:hover {
+    opacity: 50%;
+}
