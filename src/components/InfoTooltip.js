@@ -26,17 +26,17 @@ function InfoTooltip(props) {
                 <div className='popup__form'>
                     <img
                         className='popup__reply-img'
-                        src={props.isSuccess
-                            ? accept
-                            : decline}
-                        alt={props.isSuccess
-                            ? 'Всё прошло хорошо'
-                            : 'Допущена ошибка!'}/>
+                        src={!props.isSuccess
+                            ? decline
+                            : accept}
+                        alt={!props.isSuccess
+                            ? props.ifErrorText
+                            : props.ifAcceptText}/>
                     <h2 className='popup__reply'>
                         {
-                            props.isSuccess
-                                ? "Вы успешно зарегистрировались!"
-                                : "Что-то пошло не так! Попробуйте ещё раз."
+                            !props.isSuccess
+                                ? props.ifErrorText
+                                : props.ifAcceptText
                         }
                     </h2>
                 </div>

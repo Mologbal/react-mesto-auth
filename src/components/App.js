@@ -23,7 +23,7 @@ function App() {
     const [selectedCard, setSelectedCard] = useState(null)
     const [currentUser, setCurrentUser] = useState({});
     const [cards, setCards] = useState([]);
-    
+
     const [loggedIn, setLoggedIn] = useState(false)
     const [isInfoTooltipOpen, setIsInfoTooltipOpen] = useState(false)
     const [userEmail, setUserEmail] = useState('')
@@ -42,12 +42,13 @@ function App() {
                 console.log(`Ошибка: ${err}`)
                 setIsSuccess(false)
             })
-            .finally(() => {
+            . finally(() => {
                 setIsInfoTooltipOpen(true)
             })
     }
 
-    //Функция для авторизации уже зарегистрированных пользователей(ещё сохранит токен в локальное хранилище)
+    // Функция для авторизации уже зарегистрированных пользователей(ещё сохранит
+    // токен в локальное хранилище)
     function handleLogin(email, password) {
         auth
             .authorise(email, password)
@@ -59,9 +60,10 @@ function App() {
             })
             .catch((err) => {
                 console.log(`Ошибка: ${err}`)
+                setIsInfoTooltipOpen(true)
             })
         }
-    
+
     //Функция для выхода из своего профиля
     function handleSignOut() {
         localStorage.removeItem('token')
@@ -84,7 +86,6 @@ function App() {
             })
         }, [history])
 
-    
     useEffect(() => {
         const token = localStorage.getItem('token');
         if (token) {
@@ -94,25 +95,25 @@ function App() {
 
     //отрисовка информации о пользователе и карточках с сервера
     useEffect(() => {
-        if(loggedIn) {
-        apiConfig
-            .getUserInfo()
-            .then((res) => {
-                setCurrentUser(res)
-            })
-            .catch((err) => {
-                console.log(`Ошибка: ${err}`)
-            })
-        apiConfig
-            .getInitialCards()
-            .then((res) => {
-                setCards(res)
-            })
-            .catch((err) => {
-                console.log(`Ошибка: ${err}`)
-            })
-        }
-        }, [loggedIn]);
+        if (loggedIn) {
+            apiConfig
+                .getUserInfo()
+                .then((res) => {
+                    setCurrentUser(res)
+                })
+                .catch((err) => {
+                    console.log(`Ошибка: ${err}`)
+                })
+            apiConfig
+                .getInitialCards()
+                .then((res) => {
+                    setCards(res)
+                })
+                .catch((err) => {
+                    console.log(`Ошибка: ${err}`)
+                })
+            }
+    }, [loggedIn]);
 
     function handleCardLike(card) {
         // проверим на предмет лайка от пользователя ранее
@@ -200,7 +201,8 @@ function App() {
                 console.log(`Ошибка: ${error}`)
             })
         } {/*  //Todoo реализовать интерактивное изменение текста кнопки сабмита, для польз
- * ователей с плохим интернетом 
+ *  ователей с плохим интернетом
+
  */
     }
 
@@ -258,7 +260,7 @@ function App() {
                             <Register onRegister={handleRegister}/>
                         </Route>
                         <ProtectedRoute
-                            exact
+                            exact="exact"
                             path='/'
                             loggedIn={loggedIn}
                             component={Main}
@@ -279,12 +281,13 @@ function App() {
                     </Switch>
 
                     <InfoTooltip
-                            open={isInfoTooltipOpen}
-                            close={closeAllPopups}
-                            isSuccess={isSuccess}
-                            onOverlayClose={handleCloseOverlay}
-                            onButtonEsc={handleEscButton}
-                            />
+                        open={isInfoTooltipOpen}
+                        close={closeAllPopups}
+                        isSuccess={isSuccess}
+                        onOverlayClose={handleCloseOverlay}
+                        onButtonEsc={handleEscButton}
+                        ifErrorText={"Что-то пошло не так! Попробуйте ещё раз."}
+                        ifAcceptText={"Вы успешно зарегистрировались!"}/>
 
                     <EditProfilePopup
                         open={isEditProfilePopupOpen}

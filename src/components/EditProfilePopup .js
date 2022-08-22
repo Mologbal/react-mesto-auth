@@ -1,19 +1,18 @@
 import React from "react";
 import PopupWithForm from "./PopupWithForm";
-import { CurrentUserContext } from '../contexts/CurrentUserContext'
+import {CurrentUserContext} from '../contexts/CurrentUserContext'
 
-function EditProfilePopup ({open, close, onUpdateUser, onOverlayClose, onButtonEsc}) {
+function EditProfilePopup(
+    {open, close, onUpdateUser, onOverlayClose, onButtonEsc}
+) {
     const currentUser = React.useContext(CurrentUserContext);
     const [name, setName] = React.useState('');
     const [about, setAbout] = React.useState('');
 
-    function handleSubmit (e) {
+    function handleSubmit(e) {
         e.preventDefault();
 
-        onUpdateUser({
-            name: name,
-            about: about
-        });
+        onUpdateUser({name: name, about: about});
     };
 
     function handleAboutChange(e) {
@@ -28,46 +27,45 @@ function EditProfilePopup ({open, close, onUpdateUser, onOverlayClose, onButtonE
     React.useEffect(() => {
         if (open) {
             setName(currentUser.name);
-            setAbout(currentUser.about);  
-        }    
+            setAbout(currentUser.about);
+        }
     }, [open, currentUser]);
 
     return (
         <PopupWithForm
-                name='profile'
-                title='Редактировать профиль'
-                open={open}
-                close={close}
-                buttonText ='Сохранить'
-                onSubmit={handleSubmit}
-                onOverlayClose={onOverlayClose}
-                onButtonEsc={onButtonEsc}
-                >
-                <input
-                    className="popup__placeholder-input popup__placeholder-input_type_name"
-                    value={name}
-                    onChange={handleNameChange}
-                    id="name"
-                    type="text"
-                    name="name"
-                    placeholder="Имя"
-                    minLength="2"
-                    maxLength="40"
-                    required="required"/>
-                <span id="error-name" className="popup__error"></span>
-                <input
-                    className="popup__placeholder-input popup__placeholder-input_type_passion"
-                    value={about}
-                    onChange={handleAboutChange}
-                    id="passion"
-                    type="text"
-                    name="about"
-                    placeholder="Профессиональная деятельность"
-                    minLength="2"
-                    maxLength="200"
-                    required="required"/>
-                <span id="error-passion" className="popup__error"></span>
-            </PopupWithForm>
+            name='profile'
+            title='Редактировать профиль'
+            open={open}
+            close={close}
+            buttonText='Сохранить'
+            onSubmit={handleSubmit}
+            onOverlayClose={onOverlayClose}
+            onButtonEsc={onButtonEsc}>
+            <input
+                className="popup__placeholder-input popup__placeholder-input_type_name"
+                value={name}
+                onChange={handleNameChange}
+                id="name"
+                type="text"
+                name="name"
+                placeholder="Имя"
+                minLength="2"
+                maxLength="40"
+                required="required"/>
+            <span id="error-name" className="popup__error"></span>
+            <input
+                className="popup__placeholder-input popup__placeholder-input_type_passion"
+                value={about}
+                onChange={handleAboutChange}
+                id="passion"
+                type="text"
+                name="about"
+                placeholder="Профессиональная деятельность"
+                minLength="2"
+                maxLength="200"
+                required="required"/>
+            <span id="error-passion" className="popup__error"></span>
+        </PopupWithForm>
     )
 }
 

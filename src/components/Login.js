@@ -18,14 +18,29 @@ function Login(props) {
         props.onLogin(email, password)
     }
 
-    return(
+    return (
         <PatternForm
-        title={'Вход'}
-        name={'login'}
-        buttonText={'Войти'}
-        onSubmit={handleSubmit}>
-         <input onChange={editLogin} className="hello__input" required placeholder="Login" type='email' name='email' value={email} />
-         <input onChange={editPassword} className='hello__input' required placeholder="Password" type='password' name='password' value={password} minLength='4' />
+            title={'Вход'}
+            name={'login'}
+            buttonText={'Войти'}
+            onSubmit={handleSubmit}>
+            <input
+                onChange={editLogin}
+                className="hello__input"
+                required="required"
+                placeholder="Login"
+                type='email'
+                name='email'
+                value={email}/>
+            <input
+                onChange={editPassword}
+                className='hello__input'
+                required="required"
+                placeholder="Password"
+                type='password'
+                name='password'
+                value={password}
+                minLength='4'/>
         </PatternForm>
     )
 }
